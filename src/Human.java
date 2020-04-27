@@ -19,6 +19,16 @@ public class Human
         number = numberC;
     }
 
+    public Human(String nameC, String surnameC, Double ageC, Integer idC, Phone numberC, double salary)
+    {
+        name = nameC;
+        surname = surnameC;
+        age = ageC;
+        id = idC;
+        number = numberC;
+        this.salary = salary;
+    }
+
     public Human(String nameC, String surnameC, Double ageC, Integer idC, Phone numberC, Animal animal)
     {
         name = nameC;
@@ -108,7 +118,20 @@ public class Human
 
     public void setCar(Car car)
     {
-        this.car = car;
+        if(car.getWorth() < salary)
+        {
+            System.out.println("You've managed to buy this car.");
+            this.car = car;
+        }
+        else if(car.getWorth() <= salary * 12)
+        {
+            System.out.println("You've managed to buy this car in installments.");
+            this.car = car;
+        }
+        else
+        {
+            System.out.println("Sorry, you are too poor for this car.");
+        }
     }
 
     public  double getSalary()

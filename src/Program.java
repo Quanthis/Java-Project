@@ -25,5 +25,15 @@ public class Program
 
         Human.setSalary(5000);
         Human.getSalary();
+
+        var expensiveCar = new Car("Aventador", "Lamborghini", 730.0, "double wishbone rear suspension", 250000.0);
+
+        var richHooman = new Human("Elon", "Musk", 115.0, 999999, new Phone(95136, "5G"));
+
+        richHooman.setSalary(1000000);
+
+        richHooman.setCar(expensiveCar);
+
+
     }
 }
