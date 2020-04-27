@@ -1,9 +1,11 @@
-public class Human {
+public class Human
+{
     private String name;
     private String surname;
     private Double age;
     private Integer id;
     private Phone number;
+    Animal pet;
 
     public Human(String nameC, String surnameC, Double ageC, Integer idC, Phone numberC)
     {
@@ -14,7 +16,15 @@ public class Human {
         number = numberC;
     }
 
-
+    public Human(String nameC, String surnameC, Double ageC, Integer idC, Phone numberC, Animal animal)
+    {
+        name = nameC;
+        surname = surnameC;
+        age = ageC;
+        id = idC;
+        number = numberC;
+        pet = animal;
+    }
 
     public String getName()
     {
