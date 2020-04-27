@@ -18,5 +18,12 @@ public class Program
         Human.setCar(someNiceCar);
 
         System.out.println("Human's car horsepower: " + Human.getCar().getHorsePower() + "\nHuman's car model: " + Human.getCar().model);
+
+        Human.getSalary();
+
+        Human.setSalary(-5000);
+
+        Human.setSalary(5000);
+        Human.getSalary();
     }
 }
