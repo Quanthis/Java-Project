@@ -166,4 +166,18 @@ public class Human
             this.salary = newSalary;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", age=" + age +
+                ", id=" + id +
+                ", number=" + number +
+                ", pet=" + pet +
+                ", car=" + car +
+                ", salary=" + salary +
+                '}';
+    }
 }

@@ -106,4 +106,14 @@ public class Animal
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "name='" + name + '\'' +
+                ", pic=" + pic +
+                ", species='" + species + '\'' +
+                ", weigth=" + weigth +
+                ", isAlive=" + isAlive +
+                '}';
+    }
 }

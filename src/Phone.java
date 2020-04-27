@@ -46,4 +46,13 @@ public class Phone {
     {
         dialling_code = dialling_codeM;
     }
+
+    @Override
+    public String toString() {
+        return "Phone{" +
+                "number=" + number +
+                ", net='" + net + '\'' +
+                ", dialling_code=" + dialling_code +
+                '}';
+    }
 }

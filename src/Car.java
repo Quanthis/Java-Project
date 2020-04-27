@@ -47,4 +47,15 @@ public class Car
     {
         return  worth;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "model='" + model + '\'' +
+                ", producer='" + producer + '\'' +
+                ", horsePower=" + horsePower +
+                ", suspenion='" + suspenion + '\'' +
+                ", worth=" + worth +
+                '}';
+    }
 }
