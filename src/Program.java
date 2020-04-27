@@ -11,6 +11,12 @@ public class Program
 
         doggo.feed();
         doggo.goForWalk(5.0);
-        doggo.goForWalk(15.0);
+        //doggo.goForWalk(15.0);
+
+        var someNiceCar = new Car("Aventador", "Lamborghini", 730.0, "double wishbone rear suspension");
+
+        Human.setCar(someNiceCar);
+
+        System.out.println("Human's car horsepower: " + Human.getCar().getHorsePower() + "\nHuman's car model: " + Human.getCar().model);
     }
 }

@@ -5,7 +5,8 @@ public class Human
     private Double age;
     private Integer id;
     private Phone number;
-    Animal pet;
+    private Animal pet;
+    private Car car;
 
     public Human(String nameC, String surnameC, Double ageC, Integer idC, Phone numberC)
     {
@@ -24,6 +25,27 @@ public class Human
         id = idC;
         number = numberC;
         pet = animal;
+    }
+
+    public Human(String nameC, String surnameC, Double ageC, Integer idC, Phone numberC, Car car)
+    {
+        name = nameC;
+        surname = surnameC;
+        age = ageC;
+        id = idC;
+        number = numberC;
+        this.car = car;
+    }
+
+    public Human(String nameC, String surnameC, Double ageC, Integer idC, Phone numberC, Car car, Animal pet)
+    {
+        name = nameC;
+        surname = surnameC;
+        age = ageC;
+        id = idC;
+        number = numberC;
+        this.car = car;
+        this.pet = pet;
     }
 
     public String getName()
@@ -77,4 +99,13 @@ public class Human
         number = numberM;
     }
 
+    public Car getCar()
+    {
+        return car;
+    }
+
+    public void setCar(Car car)
+    {
+        this.car = car;
+    }
 }
