@@ -1,5 +1,6 @@
 package notDevices;
 
+import Creatures.Animal;
 import devices.Car;
 import devices.Phone;
 

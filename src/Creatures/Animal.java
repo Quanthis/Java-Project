@@ -1,16 +1,19 @@
-package notDevices;
+package Creatures;
+
+import notDevices.Human;
+import notDevices.Saleable;
 
 import java.io.File;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class Animal implements Saleable
+public abstract class Animal implements Saleable, Feedable
 {
     private String name;
     private File pic;
     public  final String species;
-    BigDecimal weigth;
-    private  boolean isAlive = true;
+    private BigDecimal weigth;
+    protected   boolean isAlive = true;
 
     Animal( String nameC,  File pictureC, String species, BigDecimal weight)
     {
@@ -65,8 +68,24 @@ public class Animal implements Saleable
 
     public  void feed()
     {
-        weigth.subtract(new BigDecimal(1));
-        System.out.println("Food eaten, animal weight's now: " + weigth);
+        if(isAlive)
+        {
+            weigth.subtract(new BigDecimal(1));
+            System.out.println("Food eaten, animal weight's now: " + weigth);
+        }
+        else
+            System.out.println("Dead animals can't eat.");
+    }
+
+    public void feed(BigDecimal foodWeigth)
+    {
+        if (isAlive)
+        {
+            weigth = weigth.add(foodWeigth);
+            System.out.println("Food eaten, animal weight's now: " + this.weigth);
+        }
+        else
+            System.out.println("Dead animals can't eat.");
     }
 
     public void goForWalk(Double distance)
@@ -100,11 +119,11 @@ public class Animal implements Saleable
     {
         if (weigth.doubleValue() <= 0)
         {
-            System.out.println("notDevices.Animal is dead");
+            System.out.println("Creatures.Animal is dead");
             isAlive = false;
             return false;
         }
-        System.out.println("notDevices.Animal lives... yet");
+        System.out.println("Creatures.Animal lives... yet");
         return true;
     }
 
@@ -129,7 +148,7 @@ public class Animal implements Saleable
     @Override
     public String toString()
     {
-        return "notDevices.Animal{" +
+        return "Creatures.Animal{" +
                 "name='" + name + '\'' +
                 ", pic=" + pic +
                 ", species='" + species + '\'' +
