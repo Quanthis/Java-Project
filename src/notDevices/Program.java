@@ -1,5 +1,9 @@
+package notDevices;
+
 import devices.Car;
 import devices.Phone;
+import notDevices.Animal;
+import notDevices.Human;
 
 import java.io.File;
 
@@ -19,7 +23,7 @@ public class Program
 
         Human.setCar(someNiceCar);
 
-        System.out.println("Human's car horsepower: " + Human.getCar().getHorsePower() + "\nHuman's car model: " + Human.getCar().model);
+        System.out.println("notDevices.Human's car horsepower: " + Human.getCar().getHorsePower() + "\nnotDevices.Human's car model: " + Human.getCar().model);
 
         Human.getSalary();
 
@@ -62,5 +66,12 @@ public class Program
 
         expensiveCar.turnOn();
         System.out.println(expensiveCar.toString());
+
+        var merchant = new Human("Merchant", otherExpensiveCar, 1000000000.0);
+        var peasant = new Human("Happy Peasant", null, 30000.0);
+
+        System.out.println("Peasant before shopping: " + peasant.toString() + "\nMerchant before selling: " + merchant.toString());
+        otherExpensiveCar.Sell(merchant, peasant, 29000.0);
+        System.out.println("Peasant after shopping: " + peasant.toString() + "\nMerchant after selling: " + merchant.toString());
     }
 }

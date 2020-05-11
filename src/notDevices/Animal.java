@@ -1,8 +1,10 @@
+package notDevices;
+
 import java.io.File;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class Animal
+public class Animal implements Saleable
 {
     private String name;
     private File pic;
@@ -98,17 +100,36 @@ public class Animal
     {
         if (weigth.doubleValue() <= 0)
         {
-            System.out.println("Animal is dead");
+            System.out.println("notDevices.Animal is dead");
             isAlive = false;
             return false;
         }
-        System.out.println("Animal lives... yet");
+        System.out.println("notDevices.Animal lives... yet");
         return true;
     }
 
     @Override
-    public String toString() {
-        return "Animal{" +
+    public void Sell(Human seller, Human buyer, Double price)
+    {
+        if(seller.getAnimal() == this)
+        {
+            if(buyer.getCash() >= price)
+            {
+                buyer.minusCash(price);
+                seller.plusCash(price);
+                seller.removeAnimal();
+                buyer.addAnimal(this);
+                System.out.println("Transaction succeded!");
+            }
+            else System.out.println("Sorry, transaction failed.");
+        }
+        else System.out.println("Sorry, transaction failed.");
+    }
+
+    @Override
+    public String toString()
+    {
+        return "notDevices.Animal{" +
                 "name='" + name + '\'' +
                 ", pic=" + pic +
                 ", species='" + species + '\'' +

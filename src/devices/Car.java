@@ -1,5 +1,7 @@
 package devices;
 
+import notDevices.Human;
+
 public class Car extends Device
 {
     private double horsePower;
@@ -64,5 +66,23 @@ public class Car extends Device
     public void turnOn()
     {
         turnedOn = true;
+    }
+
+    @Override
+    public void Sell(Human seller, Human buyer, Double price)
+    {
+        if(seller.getCar() == this)
+        {
+            if(buyer.getCash() >= price)
+            {
+                buyer.minusCash(price);
+                seller.plusCash(price);
+                seller.removeCar(this);
+                buyer.addCar(this);
+                System.out.println("Transaction succeded!");
+            }
+            else System.out.println("Sorry, transaction failed.");
+        }
+        else System.out.println("Sorry, transaction failed.");
     }
 }

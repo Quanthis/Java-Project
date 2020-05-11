@@ -1,3 +1,5 @@
+package notDevices;
+
 public class LastSalaryInfo
 {
     public static  double lastSalary;

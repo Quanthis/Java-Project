@@ -1,7 +1,9 @@
+package notDevices;
+
 import devices.Car;
 import devices.Phone;
 
-public class Human
+public class Human implements Saleable
 {
     private String name;
     private String surname;
@@ -12,6 +14,7 @@ public class Human
     private Car car;
     private Double salary = 0.0;
     static  int index = 0;
+    private  Double cash;
 
     public Human(String nameC, String surnameC, Double ageC, Integer idC, Phone numberC)
     {
@@ -61,6 +64,13 @@ public class Human
         number = numberC;
         this.car = car;
         this.pet = pet;
+    }
+
+    public  Human(String name, Car car, Double cash)
+    {
+        this.name = name;
+        this.car = car;
+        this.cash = cash;
     }
 
     public String getName()
@@ -119,6 +129,50 @@ public class Human
         return car;
     }
 
+    public Double getCash() {return  cash;}
+
+    public Animal getAnimal(){return  pet;}
+
+    public void removeAnimal()
+    {
+        this.pet = null;
+    }
+
+    public  void addAnimal(Animal animal)
+    {
+        this.pet = animal;
+    }
+
+    public  void minusCash(Double toPay)
+    {
+        this.cash = this.cash - toPay;
+    }
+
+    public  void plusCash(Double toGet)
+    {
+        this.cash = this.cash + toGet;
+    }
+
+    public void removeCar(Car soldCar)
+    {
+        this.car = null;
+    }
+
+    public void addCar(Car boughtCar)
+    {
+        this.car = boughtCar;
+    }
+
+    public void removePhone(Phone sold)
+    {
+        this.number = null;
+    }
+
+    public  void addPhone(Phone bought)
+    {
+        this.number = bought;
+    }
+
     public void setCar(Car car)
     {
         if(car.getWorth() < salary)
@@ -172,7 +226,7 @@ public class Human
 
     @Override
     public String toString() {
-        return "Human{" +
+        return "notDevices.Human{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
@@ -181,6 +235,13 @@ public class Human
                 ", pet=" + pet +
                 ", car=" + car +
                 ", salary=" + salary +
+                ", cash=" + cash +
                 '}';
+    }
+
+    @Override
+    public void Sell(Human seller, Human buyer, Double price)
+    {
+        System.out.println("Too late for buying humans.");
     }
 }

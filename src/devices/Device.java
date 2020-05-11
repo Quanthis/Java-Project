@@ -1,6 +1,8 @@
 package devices;
 
-public abstract class Device
+import notDevices.Saleable;
+
+public abstract class Device implements Saleable
 {
     public final String model;
     public final String producer;
