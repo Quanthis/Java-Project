@@ -3,6 +3,8 @@ package notDevices;
 import devices.Car;
 import devices.Phone;
 import Creatures.Pet;
+import devices.Electric;
+import devices.LPG;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -20,7 +22,7 @@ public class Program
         doggo.feed(new BigDecimal(10.0));
         //doggo.goForWalk(15.0);
 
-        var someNiceCar = new Car("Aventador", "Lamborghini", 730.0, "double wishbone rear suspension", 2015);
+        var someNiceCar = new LPG("Aventador", "Lamborghini", 730.0, "double wishbone rear suspension", 2015);
 
         Human.setCar(someNiceCar);
 
@@ -33,7 +35,7 @@ public class Program
         Human.setSalary(5000);
         Human.getSalary();
 
-        var expensiveCar = new Car("Aventador", "Lamborghini", 730.0, "double wishbone rear suspension", 250000.0, 2017);
+        var expensiveCar = new  LPG("Aventador", "Lamborghini", 2017, 730.0, "double wishbone rear suspension", 250000.0);
 
         var richHooman = new Human("Elon", "Musk", 115.0, 999999, new Phone(95136, "5G", "Xiamoi 5G", "Oxami", 2022));
 
@@ -41,7 +43,7 @@ public class Program
 
         richHooman.setCar(expensiveCar);
 
-        var otherExpensiveCar = new Car("Aventador", "Lamborghini", 730.0, "double wishbone rear suspension", 250000.0, 2019);
+        var otherExpensiveCar = new LPG("Aventador", "Lamborghini", 2019, 730.0, "double wishbone rear suspension", 250000.0);
 
         if(otherExpensiveCar == expensiveCar)
         {

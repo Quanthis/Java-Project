@@ -2,7 +2,7 @@ package devices;
 
 import notDevices.Human;
 
-public class Car extends Device
+public abstract class Car extends Device
 {
     private double horsePower;
     private String suspenion;
@@ -85,4 +85,6 @@ public class Car extends Device
         }
         else System.out.println("Sorry, transaction failed.");
     }
+
+    public abstract void Refuel();
 }
