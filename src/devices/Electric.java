@@ -7,9 +7,9 @@ public class Electric extends  Car
         super(model, producer, horsePower, suspension, worth,yearOfProduction);
     }
 
-    public Electric(String model, String producer, double power, String suspenion, Integer yearOfProduction)
+    public Electric(String model, String producer, double power, String suspenion, Integer yearOfProduction, double worth)
     {
-        super(model, producer, power, suspenion, yearOfProduction);
+        super(model, producer, power, suspenion, yearOfProduction, worth);
     }
 
     @Override

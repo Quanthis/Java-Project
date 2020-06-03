@@ -4,6 +4,8 @@ import Creatures.Animal;
 import devices.Car;
 import devices.Phone;
 
+import java.util.Arrays;
+
 public class Human implements Saleable
 {
     private String name;
@@ -12,7 +14,7 @@ public class Human implements Saleable
     private Integer id;
     private Phone number;
     private Animal pet;
-    private Car car;
+    private Car[] garage;
     private Double salary = 0.0;
     static  int index = 0;
     private  Double cash;
@@ -53,7 +55,8 @@ public class Human implements Saleable
         age = ageC;
         id = idC;
         number = numberC;
-        this.car = car;
+        this.garage = new Car[1];
+        this.garage[0] = car;
     }
 
     public Human(String nameC, String surnameC, Double ageC, Integer idC, Phone numberC, Car car, Animal pet)
@@ -63,15 +66,31 @@ public class Human implements Saleable
         age = ageC;
         id = idC;
         number = numberC;
-        this.car = car;
+        this.garage = new Car[1];
+        this.garage[0] = car;
         this.pet = pet;
     }
 
     public  Human(String name, Car car, Double cash)
     {
         this.name = name;
-        this.car = car;
+        this.garage = new Car[1];
+        this.garage[0] = car;
         this.cash = cash;
+    }
+
+    public Human(String name, int garageSize, Double cash)
+    {
+        if(garageSize >= 0)
+        {
+            this.name = name;
+            this.garage = new Car[garageSize];
+            this.cash = cash;
+        }
+        else
+        {
+            System.out.println("You cannot have negative amount of cars, as far I know.");
+        }
     }
 
     public String getName()
@@ -125,9 +144,9 @@ public class Human implements Saleable
         number = numberM;
     }
 
-    public Car getCar()
+    public Car getCar(int parkingLotNo)
     {
-        return car;
+        return garage[parkingLotNo];
     }
 
     public Double getCash() {return  cash;}
@@ -154,14 +173,14 @@ public class Human implements Saleable
         this.cash = this.cash + toGet;
     }
 
-    public void removeCar(Car soldCar)
+    public void removeCar(Car soldCar, int parkingLotNo)
     {
-        this.car = null;
+        this.garage[parkingLotNo] = null;
     }
 
-    public void addCar(Car boughtCar)
+    public void addCar(Car boughtCar, int parkingLotNo)
     {
-        this.car = boughtCar;
+        this.garage[parkingLotNo] = boughtCar;
     }
 
     public void removePhone(Phone sold)
@@ -174,17 +193,17 @@ public class Human implements Saleable
         this.number = bought;
     }
 
-    public void setCar(Car car)
+    public void setCar(Car car, int parkingLotNo)
     {
         if(car.getWorth() < salary)
         {
             System.out.println("You've managed to buy this car.");
-            this.car = car;
+            this.garage[parkingLotNo] = car;
         }
         else if(car.getWorth() <= salary * 12)
         {
             System.out.println("You've managed to buy this car in installments.");
-            this.car = car;
+            this.garage[parkingLotNo] = car;
         }
         else
         {
@@ -225,6 +244,33 @@ public class Human implements Saleable
         }
     }
 
+    public double getGarageValue()
+    {
+        double result = 0;
+        for(int i = 0; i < garage.length; ++i)
+        {
+            result += garage[i].getWorth();
+        }
+        return result;
+    }
+
+    public void sortGarage_asc()
+    {
+        Arrays.sort(garage);
+    }
+
+    public Integer getFreeParkingLot()
+    {
+        for(int i = 0; i < garage.length; ++i)
+        {
+            if(garage[i] == null)
+            {
+                return i;
+            }
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         return "notDevices.Human{" +
@@ -234,10 +280,20 @@ public class Human implements Saleable
                 ", id=" + id +
                 ", number=" + number +
                 ", pet=" + pet +
-                ", car=" + car +
+                ", car=" + garage +
                 ", salary=" + salary +
                 ", cash=" + cash +
                 '}';
+    }
+
+    public String getGarage()
+    {
+        String result = "";
+        for(int i = 0; i < garage.length; ++i)
+        {
+            result += "\n" + garage[i].toString();
+        }
+        return  result;
     }
 
     @Override

@@ -7,9 +7,9 @@ public class Diesel extends  Car
         super(model, producer, horsePower, suspension, worth,yearOfProduction);
     }
 
-    public Diesel(String model, String producer, double power, String suspenion, Integer yearOfProduction)
+    public Diesel(String model, String producer, double power, String suspenion, Integer yearOfProduction, double worth)
     {
-        super(model, producer, power, suspenion, yearOfProduction);
+        super(model, producer, power, suspenion, yearOfProduction, worth);
     }
 
     @Override
