@@ -98,7 +98,12 @@ public class Program
         merchant.addCar(expensiveCar2, 1);
         merchant.addCar(expensiveCar3, 2);
         merchant.addCar(expensiveCar4, 3);
-        merchant.sortGarage_asc();
+        //merchant.sortGarage_asc();
         System.out.println(merchant.getGarage());
+
+        expensiveCar.Sell(merchant, peasant, 10000.0);
+        expensiveCar.Sell(peasant, merchant, 7000.0);
+        System.out.println(expensiveCar.toString());
+
     }
 }

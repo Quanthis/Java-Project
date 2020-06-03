@@ -1,9 +1,18 @@
 package devices;
 
 import notDevices.Human;
+import notDevices.Transaction;
+
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.ListIterator;
+import java.util.Date;
 
 public abstract class Car extends Device implements Comparable<Car>
 {
+    private LinkedList<Transaction> Transactions = new LinkedList<Transaction>();
+
     private double horsePower;
     private String suspenion;
     private  boolean turnedOn = false;
@@ -58,7 +67,18 @@ public abstract class Car extends Device implements Comparable<Car>
                 ", worth=" + value +
                 ", turned on = " + turnedOn + '\'' +
                 ", year of production = " + yearOfProduction + '\'' +
+                ", Transactions: = " + getTransactions() + '\'' +
                 '}';
+    }
+
+    public String getTransactions()
+    {
+        String result = "anything";
+        for(int i = 0; i < Transactions.size(); ++i)
+        {
+            result += "\n" + Transactions.get(i);
+        }
+        return result;
     }
 
     @Override
@@ -81,6 +101,7 @@ public abstract class Car extends Device implements Comparable<Car>
                     seller.removeCar(this, 0);
                     buyer.addCar(this, buyer.getFreeParkingLot());
                     System.out.println("Transaction succeded!");
+                    Transactions.add(new Transaction(buyer, seller, price, new Date()));
                 }
                 else
                 {
