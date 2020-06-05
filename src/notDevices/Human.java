@@ -19,6 +19,13 @@ public class Human implements Saleable
     static  int index = 0;
     private  Double cash;
 
+    public Human(String name, Double cash, Phone phone)
+    {
+        this.name = name;
+        this.cash = cash;
+        this.number = phone;
+    }
+
     public Human(String nameC, String surnameC, Double ageC, Integer idC, Phone numberC)
     {
         name = nameC;

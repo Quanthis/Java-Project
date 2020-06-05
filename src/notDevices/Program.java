@@ -76,7 +76,7 @@ public class Program
         otherExpensiveCar.Sell(merchant, peasant, 29000.0);
         System.out.println("Peasant after shopping: " + peasant.toString() + "\nMerchant after selling: " + merchant.toString());*/
 
-        var otherExpensiveCar = new LPG("Aventador", "Lamborghini", 2019, 730.0, "double wishbone rear suspension", 250000.0);
+        /*var otherExpensiveCar = new LPG("Aventador", "Lamborghini", 2019, 730.0, "double wishbone rear suspension", 250000.0);
         var expensiveCar = new  LPG("Aventador", "Lamborghini", 2017, 730.0, "double wishbone rear suspension", 250000.0);
         var merchant = new Human("Merchant", 1, 100000.0);
         var peasant = new Human("Happy Peasant", 0, 30000.0);
@@ -103,7 +103,23 @@ public class Program
 
         expensiveCar.Sell(merchant, peasant, 10000.0);
         expensiveCar.Sell(peasant, merchant, 7000.0);
-        System.out.println(expensiveCar.toString());
+        System.out.println(expensiveCar.toString());*/
 
+        var testPhoone = new Phone("5GModel1", "Tethla", 2019);
+        var testHuman = new Human("TestHuman", 10000.00, testPhoone);
+
+
+        testPhoone.installAnnApp("Z3G HANDLING", "32.9");
+        testPhoone.installAnnApp("A5G HANDLING");
+        testPhoone.installAnnApp("Z4G HANDLING", "2.1");
+        testPhoone.installAnnApp("6G HANLDER", "1.2", 500.0, testHuman);
+
+        var justExpensiveApp = new Application("You're rich", 1000.0);
+        testPhoone.installAnnApp("ChromeThatDoesntEatYourRAM", "1.2", 250.0, testHuman);
+        testPhoone.installAnnApp(justExpensiveApp, testHuman);
+
+        testPhoone.getFreeApps();
+        testPhoone.sortAppsDesc();
+        testPhoone.sortAppsByPrice();
     }
 }
